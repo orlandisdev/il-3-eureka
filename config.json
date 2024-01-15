@@ -1,0 +1,85 @@
+{
+	"siteName": "Institut de Formació Contínua-IL3",
+	"site": "UNIVERSITAT DE BARCELONA",
+	"sofwareName": "Eureka",
+	"logo": "",
+	"icons": {
+		"help": "ayudar.png",
+		"close": "left.png",
+		"open": "rigth.png"
+	},
+	"menu": [
+		{ "id": 1, "name": "Inicio", "active": true },
+		{ "id": 2, "name": "Gestión", "active": false }
+	],
+	"leftMenu": [
+		{
+			"id": 1,
+			"name": "Expedientes",
+			"active": true,
+			"url": "",
+			"icon": "1.png"
+		},
+		{
+			"id": 2,
+			"name": "Tareas",
+			"active": true,
+			"url": "",
+			"icon": "2.png"
+		},
+		{
+			"id": 3,
+			"name": "Presupuestos",
+			"active": true,
+			"url": "",
+			"icon": "3.png"
+		},
+		{
+			"id": 4,
+			"name": "Pedidos",
+			"active": true,
+			"url": "",
+			"icon": "4.png"
+		},
+		{
+			"id": 5,
+			"name": "Facturas",
+			"active": true,
+			"url": "",
+			"icon": "5.png"
+		},
+		{
+			"id": 6,
+			"name": "Inventario",
+			"active": true,
+			"url": "",
+			"icon": "6.png"
+		},
+		{
+			"id": 7,
+			"name": "Calendarios",
+			"active": true,
+			"url": "",
+			"icon": "7.png"
+		},
+		{
+			"id": 8,
+			"name": "Mantenimiento",
+			"active": false,
+			"url": "",
+			"icon": "8.png"
+		}
+	],
+
+	"themes": {
+		"clear": {
+			"color": "",
+			"backgroundColor": "",
+			"headerBackground": "#0071CD",
+			"headerColor": "#FFF",
+			"leftMenuBackground": "#005EA8",
+			"leftMenuColor": "#FFF"
+		},
+		"dark": ""
+	}
+}
