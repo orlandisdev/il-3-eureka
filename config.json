@@ -72,14 +72,32 @@
 	],
 
 	"themes": {
-		"clear": {
-			"color": "",
-			"backgroundColor": "",
+		"default": {
+			"color": "#000",
+			"backgroundColor": "#FFF",
 			"headerBackground": "#0071CD",
 			"headerColor": "#FFF",
 			"leftMenuBackground": "#005EA8",
 			"leftMenuColor": "#FFF"
 		},
-		"dark": ""
+
+		"clear": {
+			"color": "#000",
+			"backgroundColor": "#FFF",
+			"headerBackground": "#0071CD",
+			"headerColor": "#FFF",
+			"leftMenuBackground": "#005EA8",
+			"leftMenuColor": "#FFF",
+			"active": false
+		},
+		"dark": {
+			"color": "",
+			"backgroundColor": "",
+			"headerBackground": "#0071CD",
+			"headerColor": "#FFF",
+			"leftMenuBackground": "#005EA8",
+			"leftMenuColor": "#FFF",
+			"active": false
+		}
 	}
 }

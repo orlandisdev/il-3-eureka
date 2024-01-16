@@ -10,7 +10,8 @@ interface Props {
 
 export const Layout: FC<Props> = ({ children, data }) => {
 	const Container = styled.div`
-		display: flex;
+		display: grid;
+		grid-template-columns: auto 1fr;
 	`;
 	return (
 		<>

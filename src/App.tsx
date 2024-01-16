@@ -1,17 +1,24 @@
 import { Layout } from './components/layouts';
 import data from '../config.json';
-import { Login } from './components/login';
+import styled from 'styled-components';
+import { useTheme } from './components/hooks/useTheme';
 
 function App() {
-	return (
-		<Layout data={data}>
-			<main>
-				<b>INSTITUT DE FORMACIÓ CONTÍNUA-IL3</b>
-				<p>Universitat de Barcelona</p>
+	const { color, backgroundColor } = useTheme();
 
-				<Login />
-			</main>
-		</Layout>
+	const Body = styled.body`
+		${color};
+		background-color: ${backgroundColor};
+	`;
+	return (
+		<Body>
+			<Layout data={data}>
+				<main>
+					<b>INSTITUT DE FORMACIÓ CONTÍNUA-IL3</b>
+					<p>Universitat de Barcelona</p>
+				</main>
+			</Layout>
+		</Body>
 	);
 }
 

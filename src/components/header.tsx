@@ -2,9 +2,11 @@ import styled from 'styled-components';
 import { ConfigInterface } from '../types/configSite.types';
 import SchoolImg from '../assets/universidad.png';
 import { Link } from 'react-router-dom';
+
 import { IoIosNotificationsOutline } from 'react-icons/io';
 import { FiUser } from 'react-icons/fi';
 import { useState } from 'react';
+import { useTheme } from './hooks/useTheme';
 
 interface Props {
 	data: ConfigInterface;
@@ -13,12 +15,10 @@ interface Props {
 export const Header = ({ data }: Props) => {
 	const [menuActivate, setMenuActive] = useState(1);
 
-	const {
-		themes: {
-			clear: { headerBackground, headerColor },
-		},
-		menu,
-	} = data;
+	const { menu } = data;
+
+	const { headerBackground, headerColor } = useTheme();
+
 	/* Estilos con los datos optenidos desde la configuración 
     TODO: luego passar a un hook limpio
     */
@@ -124,13 +124,14 @@ export const Header = ({ data }: Props) => {
 							<ul>
 								{menu.map((menu) => (
 									<li
-										className={`${
+										className={`cursor-pointer	 ${
 											menu.id === menuActivate ? 'active' : ''
 										}`}
 										key={menu.id}
 										onClick={() => setMenuActive(menu.id)}
 									>
-										<Link to={'/' + menu.id}>{menu.name}</Link>
+										<span>{menu.name}</span>
+										{/* <Link to={'/' + menu.id}>{menu.name}</Link> */}
 									</li>
 								))}
 							</ul>

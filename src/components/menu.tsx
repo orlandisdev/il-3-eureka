@@ -6,7 +6,7 @@ interface Props {
 	data: ConfigInterface;
 }
 interface IProps {
-	collapse?: boolean;
+	collapse: boolean;
 }
 
 export const Menu = ({ data }: Props) => {
@@ -30,6 +30,13 @@ export const Menu = ({ data }: Props) => {
 			height: 45px;
 			text-align: center;
 			margin: 15px 0;
+			/* 
+			${({ collapse }) =>
+				css`
+					opacity: ${!collapse ? 1 : 0};
+				`};
+			transition: all 0.2s ease-out; */
+
 			img {
 				margin: 0 auto;
 			}
@@ -48,13 +55,15 @@ export const Menu = ({ data }: Props) => {
 				}
 			}
 		}
-		.textHiddenOnCollapse {
-			opacity: ${({ collapse }) =>
-				css`
-					${!collapse ? 1 : 0};
-				`};
+		/*.textHiddenOnCollapse:hover {
+			 ${({ collapse }) =>
+			css`
+				transform: translateY(0);
+				${!collapse ? 0 : 0};
+			`}; 
+			opacity: 0;
 			transition: all 0.2s ease-out;
-		}
+		}*/
 
 		.closeLeftMenu {
 			margin-top: 10px;
@@ -66,7 +75,7 @@ export const Menu = ({ data }: Props) => {
 	`;
 
 	return (
-		<Menu collapse={collapse}>
+		<Menu collapse>
 			<ul>
 				{leftMenu.map((menu) => (
 					<li key={menu.id}>
