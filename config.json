@@ -78,7 +78,9 @@
 			"headerBackground": "#0071CD",
 			"headerColor": "#FFF",
 			"leftMenuBackground": "#005EA8",
-			"leftMenuColor": "#FFF"
+			"leftMenuColor": "#FFF",
+			"buttonInfoColor": "#FFF",
+			"buttonInfoBackground": "#0071CD"
 		},
 
 		"clear": {
@@ -93,9 +95,9 @@
 		"dark": {
 			"color": "",
 			"backgroundColor": "",
-			"headerBackground": "#0071CD",
+			"headerBackground": "#000",
 			"headerColor": "#FFF",
-			"leftMenuBackground": "#005EA8",
+			"leftMenuBackground": "#000",
 			"leftMenuColor": "#FFF",
 			"active": false
 		}

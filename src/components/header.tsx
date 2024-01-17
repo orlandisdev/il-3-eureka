@@ -1,28 +1,33 @@
 import styled from 'styled-components';
 import { ConfigInterface } from '../types/configSite.types';
 import SchoolImg from '../assets/universidad.png';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 import { IoIosNotificationsOutline } from 'react-icons/io';
 import { FiUser } from 'react-icons/fi';
 import { useState } from 'react';
 import { useTheme } from './hooks/useTheme';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
 	data: ConfigInterface;
 }
 
 export const Header = ({ data }: Props) => {
+	const navigate = useNavigate();
+
 	const [menuActivate, setMenuActive] = useState(1);
+	const [userIsLogin] = useState(
+		localStorage.getItem('usuarioRegistrado')
+	);
 
 	const { menu } = data;
-
 	const { headerBackground, headerColor } = useTheme();
 
 	/* Estilos con los datos optenidos desde la configuración 
     TODO: luego passar a un hook limpio
     */
-	const NavStile = styled.nav`
+	const NavStyle = styled.nav`
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -102,10 +107,13 @@ export const Header = ({ data }: Props) => {
 			}
 		}
 	`;
-
+	const handleClick = () => {
+		localStorage.removeItem('usuarioRegistrado');
+		navigate('/login');
+	};
 	return (
 		<header>
-			<NavStile>
+			<NavStyle>
 				<div className='nameContent'>
 					<div className='imageContainer'>
 						<img src={SchoolImg} alt='' />
@@ -146,9 +154,9 @@ export const Header = ({ data }: Props) => {
 					<span>
 						<FiUser className='icon' />
 					</span>
-					<p>Martin López Guadaira </p>
+					<button onClick={handleClick}>{userIsLogin} </button>
 				</div>
-			</NavStile>
+			</NavStyle>
 		</header>
 	);
 };

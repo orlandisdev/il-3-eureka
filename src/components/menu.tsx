@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { ConfigInterface } from '../types/configSite.types';
 import { useState } from 'react';
 
@@ -30,13 +30,10 @@ export const Menu = ({ data }: Props) => {
 			height: 45px;
 			text-align: center;
 			margin: 15px 0;
-			/* 
-			${({ collapse }) =>
-				css`
-					opacity: ${!collapse ? 1 : 0};
-				`};
-			transition: all 0.2s ease-out; */
 
+			.textHiddenOnCollapse:hover {
+				color: ${({ collapse }) => (collapse ? 1 : 0)};
+			}
 			img {
 				margin: 0 auto;
 			}
@@ -55,15 +52,6 @@ export const Menu = ({ data }: Props) => {
 				}
 			}
 		}
-		/*.textHiddenOnCollapse:hover {
-			 ${({ collapse }) =>
-			css`
-				transform: translateY(0);
-				${!collapse ? 0 : 0};
-			`}; 
-			opacity: 0;
-			transition: all 0.2s ease-out;
-		}*/
 
 		.closeLeftMenu {
 			margin-top: 10px;
@@ -73,9 +61,8 @@ export const Menu = ({ data }: Props) => {
 			margin-top: 15px;
 		}
 	`;
-
 	return (
-		<Menu collapse>
+		<Menu collapse={collapse}>
 			<ul>
 				{leftMenu.map((menu) => (
 					<li key={menu.id}>
