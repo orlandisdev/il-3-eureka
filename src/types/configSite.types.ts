@@ -32,8 +32,9 @@ export interface Menu {
 }
 
 export interface Themes {
+	default: Clear;
 	clear: Clear;
-	dark: string;
+	dark: Clear;
 }
 
 export interface Clear {
@@ -43,4 +44,7 @@ export interface Clear {
 	headerColor: string;
 	leftMenuBackground: string;
 	leftMenuColor: string;
+	active?: boolean;
+	buttonInfoColor?: string;
+	buttonInfoBackground?: string;
 }
