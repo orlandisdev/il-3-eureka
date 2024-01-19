@@ -80,25 +80,30 @@
 			"leftMenuBackground": "#005EA8",
 			"leftMenuColor": "#FFF",
 			"buttonInfoColor": "#FFF",
-			"buttonInfoBackground": "#0071CD"
+			"buttonInfoBackground": "#0071CD",
+			"oneFractionElementBackground": "#F6F6F6",
+			"towFractionElementBackground": "#F0F0F0",
+			"towFractionElementBorder": "1px solid #cacaca",
+			"tableBackground": "#FFF",
+			"cardConfig": {
+				"cardBackground": "#FFF",
+				"cardColor": "#000",
+				"cardShadow": ""
+			}
 		},
-
-		"clear": {
+		"claro": {
 			"color": "#000",
 			"backgroundColor": "#FFF",
-			"headerBackground": "#0071CD",
+			"headerBackground": "#000",
 			"headerColor": "#FFF",
 			"leftMenuBackground": "#005EA8",
 			"leftMenuColor": "#FFF",
-			"active": false
-		},
-		"dark": {
-			"color": "",
-			"backgroundColor": "",
-			"headerBackground": "#000",
-			"headerColor": "#FFF",
-			"leftMenuBackground": "#000",
-			"leftMenuColor": "#FFF",
+			"buttonInfoColor": "#FFF",
+			"buttonInfoBackground": "#0071CD",
+			"oneFractionElementBackground": "#F6F6F6",
+			"towFractionElementBackground": "#F0F0F0",
+			"towFractionElementBorder": "1px solid #cacaca",
+			"tableBackground": "#000",
 			"active": false
 		}
 	}

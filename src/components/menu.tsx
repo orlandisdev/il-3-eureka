@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { ConfigInterface } from '../types/configSite.types';
 import { useState } from 'react';
+import { useTheme } from './hooks/useTheme';
+import { motion } from 'framer-motion';
 
 interface Props {
 	data: ConfigInterface;
@@ -14,12 +16,9 @@ export const Menu = ({ data }: Props) => {
 
 	const {
 		leftMenu,
-		themes: {
-			clear: { leftMenuBackground, leftMenuColor },
-		},
 		icons: { help, close, open },
 	} = data;
-
+	const { leftMenuBackground, leftMenuColor } = useTheme();
 	const Menu = styled.nav<IProps>`
 		background-color: ${leftMenuBackground};
 		color: ${leftMenuColor};
@@ -31,9 +30,6 @@ export const Menu = ({ data }: Props) => {
 			text-align: center;
 			margin: 15px 0;
 
-			.textHiddenOnCollapse:hover {
-				color: ${({ collapse }) => (collapse ? 1 : 0)};
-			}
 			img {
 				margin: 0 auto;
 			}
@@ -61,19 +57,32 @@ export const Menu = ({ data }: Props) => {
 			margin-top: 15px;
 		}
 	`;
+	const show = {
+		opacity: 1,
+
+		transitionEnd: {
+			display: 'block',
+		},
+	};
+
+	const hide = {
+		opacity: 0,
+		transitionEnd: {
+			display: 'none',
+		},
+	};
 	return (
 		<Menu collapse={collapse}>
 			<ul>
 				{leftMenu.map((menu) => (
 					<li key={menu.id}>
 						<img width='20' height='20' src={menu.icon} alt='' />
-						{!collapse ? (
-							<span className='textHiddenOnCollapse'>
-								{menu.name}
-							</span>
-						) : (
-							''
-						)}
+						<motion.div
+							className='box'
+							animate={!collapse ? show : hide}
+						>
+							{menu.name}
+						</motion.div>
 					</li>
 				))}
 			</ul>
@@ -81,7 +90,12 @@ export const Menu = ({ data }: Props) => {
 			<div className='footerIcons'>
 				<button className='helpContent'>
 					<img width='32' height='32' src={help} alt='' />
-					{!collapse ? <span>Ayuda</span> : ''}
+					<motion.div
+						className='box'
+						animate={!collapse ? show : hide}
+					>
+						Ayuda
+					</motion.div>
 				</button>
 				<div className='arrowsMenu'>
 					<button

@@ -1,18 +1,23 @@
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../hooks/useTheme';
 import { StyledButtom } from '../styled-components/buttom';
-import { Clear } from '../../types/configSite.types';
 import { ChangeEvent, useState } from 'react';
 
 export function Login() {
 	const navigate = useNavigate();
 	const [user, setUser] = useState('');
-	const { buttonInfoColor, buttonInfoBackground }: Clear = useTheme();
+	const [error, setError] = useState(false);
+	const { buttonInfoColor, buttonInfoBackground } = useTheme();
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setUser(e.target.value);
 	};
 	const handleSubmit = () => {
+		if (user.length <= 0) {
+			setError(true);
+			setTimeout(() => setError(false), 3000);
+			return;
+		}
 		localStorage.setItem('usuarioRegistrado', user);
 		navigate('/#');
 	};
@@ -29,6 +34,11 @@ export function Login() {
 					</div>
 
 					<div className='mt-10 sm:mx-auto sm:w-full sm:max-w-sm'>
+						{error && (
+							<span className='block w-full	mb-3 bg-red-100 text-red-800 font-medium me-2 px-2.5 py-2  rounded dark:bg-red-900 dark:text-red-300'>
+								Rellene Los Campos
+							</span>
+						)}
 						<form className='space-y-6' action='#' method='POST'>
 							<div>
 								<label
