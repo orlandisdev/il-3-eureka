@@ -11,7 +11,7 @@ interface Props {
 export const Layout: FC<Props> = ({ children, data }) => {
 	const Container = styled.div`
 		display: grid;
-		grid-template-columns: auto 1fr;
+		grid-template-columns: auto repeat(2, 1fr);
 	`;
 	return (
 		<>

@@ -32,19 +32,21 @@ export interface Menu {
 }
 
 export interface Themes {
-	default: Clear;
-	clear: Clear;
-	dark: Clear;
+	default: Themevalues;
 }
 
-export interface Clear {
+export interface Themevalues {
 	color: string;
 	backgroundColor: string;
 	headerBackground: string;
 	headerColor: string;
 	leftMenuBackground: string;
 	leftMenuColor: string;
-	active?: boolean;
-	buttonInfoColor?: string;
-	buttonInfoBackground?: string;
+	buttonInfoColor: string;
+	buttonInfoBackground: string;
+	oneFractionElementBackground: string;
+	towFractionElementBackground: string;
+	towFractionElementBorder: string;
+	tableBackground: string;
+	active?: string;
 }
