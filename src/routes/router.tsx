@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 //TODO: List of rendering components on the router
-import { Login } from "../components/login";
+import { Login } from "../components/auth";
 import { Layout } from "../components/layouts";
 import data from "../../config.json";
 import routerAdapter from "../helpers/routerAdapter";
+import { ForgotPassword } from "../components/auth/forgot-password";
 
 const routes = routerAdapter();
 export const router = createBrowserRouter([
@@ -35,5 +36,9 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
   },
 ]);
