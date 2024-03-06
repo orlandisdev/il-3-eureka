@@ -1,15 +1,39 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter } from "react-router-dom";
 //TODO: List of rendering components on the router
-import App from '../App';
-import { Login } from '../components/login';
+import { Login } from "../components/login";
+import { Layout } from "../components/layouts";
+import data from "../../config.json";
+import routerAdapter from "../helpers/routerAdapter";
 
+const routes = routerAdapter();
 export const router = createBrowserRouter([
-	{
-		path: '/',
-		element: <App />,
-	},
-	{
-		path: '/login',
-		element: <Login />,
-	},
+  {
+    path: "/",
+    element: <Layout data={data} />,
+    children: [
+      {
+        index: true,
+        path: `/home`,
+        element: (
+          <div>
+            <h1>Home</h1>
+          </div>
+        ),
+      },
+      {
+        index: true,
+        path: `/gestions`,
+        element: (
+          <div>
+            <h1>Gestiones</h1>
+          </div>
+        ),
+      },
+      ...routes,
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
 ]);
